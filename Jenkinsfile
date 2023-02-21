@@ -47,11 +47,22 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-          stage('Stage-8 : Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
-            steps {
-                sh 'mvn deploy -DskipTests'
-            }
-        }
+         stage('Upload'){
+	    steps{
+		rtUpload (
+		  serverId:"Artifactory" ,
+		     spec: '''{
+		        "files": [
+			 {
+			  "pattern": "*.war",
+			  "target": "libs-snapshot-local"
+			  }
+				]
+			       }''',
+			    )
+			 }
+	          }
+	
           stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
                 sh 'curl -u chethan:Chethan@2222 -T target/**.war "http://18.182.10.159:8080/manager/text/deploy?path=/ashok&update=true"'
