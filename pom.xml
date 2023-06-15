@@ -9,10 +9,10 @@
   <url>http://maven.apache.org</url>
         <properties>
 		<!-- SonarQube Integration -->
-		<sonar.organization>ashok-1016</sonar.organization>
-		<sonar.projectKey>ashok-1016_java</sonar.projectKey>
+		<sonar.organization>ashok1016</sonar.organization>
+		<sonar.projectKey>ashok1016_bharat</sonar.projectKey>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>63025b14d45a9dbe1f509491f86d371476af44da</sonar.login>
+		<sonar.login>9162c472dcfc0312a9883066446aeec0e1fba1a6</sonar.login>
 	</properties>
   <dependencies>
     <dependency>
