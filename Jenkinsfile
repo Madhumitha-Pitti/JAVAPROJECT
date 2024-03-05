@@ -55,7 +55,7 @@ pipeline {
 		        "files": [
 			 {
 			  "pattern": "*.war",
-			  "target": "libs-snapshot-local"
+			  "target": "madhu-libs-snapshot-local"
 			  }
 				]
 			       }''',
