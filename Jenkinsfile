@@ -42,5 +42,27 @@ pipeline {
                 sh 'mvn clean verify sonar:sonar -DskipTests'
             }
         }  
+        stage('Upload'){
+steps{
+rtUpload (
+serverId:"Artifactory" ,
+spec: '''{
+"files": [
+{
+"pattern": "*.war",
+"target": "libs-snapshot-local"
+}
+]
+}''',
+)
+}
+}
+stage ('Publish build info') {
+steps {
+rtPublishBuildInfo (
+serverId: "Artifactory"
+)
+}
+}
     }
 }
